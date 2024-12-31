@@ -10,16 +10,19 @@
   }
 </style>
 
+
 <div class="template-404 page-width page-margin center">
 
   <p class="text-5xl text-green-500 font-semibold">
     {{ 'templates.404.subtext' | t }}
   </p>
-  <p class=" p-14 my-20 border-2 text-5xl font-bold text-yellow-600">Testting Line</p>
-  <h1 class="title text-pink-500 font-semibold text-6xl border my-10 py-40">
+  <h1 >
     {{ 'templates.404.title' | t }}
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="px-6 py-4 active:scale-95 rounded-md bg-green-500 text-white">
+
+  <h2 class="text-4xl bg-red-500 border text-white py-11">Sorry We Could Find Your Page </h2>
+
+  <a href="{{ routes.all_products_collection_url }}" class="my-10 px-6 py-4 text-2xl hover:bg-red-400 active:scale-95 rounded-md bg-green-500 text-white">
     {{ 'general.continue_shopping' | t }}
-  </a>
+  </a> 
 </div>

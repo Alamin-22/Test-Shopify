@@ -1,10 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit', // Enables Just-In-Time mode
   content: [
-    "./src/**/*.html",
-    "./src/**/*.js",
-    "./**/*.liquid", // Include Liquid files
+    "./config/*.json",
+    "./layout/*.liquid",
+    "./assets/*.liquid",
+    "./sections/*.liquid",
+    "./snippets/*.liquid",
+    "./templates/*.liquid",
+    "./templates/*.json",
+    "./templates/customers/*.liquid",
   ],
   theme: {
     extend: {},
