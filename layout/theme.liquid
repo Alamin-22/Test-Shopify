@@ -35,7 +35,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    {% comment %} testing {% endcomment %}
+    {% comment %} Tailwind and aplineJs Cofig {% endcomment %}
     <link href="{{ 'tailwind.css' | asset_url }}" rel="stylesheet">
     <script src="{{ 'app.js' | asset_url }}" defer="defer"></script>
 
@@ -305,6 +305,7 @@
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <h1 class="text-red-500 underline text-center w-full">This is the Testing line</h1>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
