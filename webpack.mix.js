@@ -1,10 +1,11 @@
 let mix = require("laravel-mix");
 
 mix
-  .postCss("src/css/tailwind.css", "dist/css", [
-    require("tailwindcss"),
-    require("autoprefixer"),
+  .postCss('src/css/tailwind.css', 'assets', [ // Outputs to assets/tailwind.css
+    require('tailwindcss'),
+    require('autoprefixer'),
   ])
-  .js("src/js/app.js", "dist/js")
-  .setPublicPath("dist")
-  .version(); // Optional for cache-busting in production
+  .js('src/js/app.js', 'assets') // Outputs to assets/app.js
+  .setPublicPath('./') // Sets the public path to the project root
+  .version(); // Add versioning
+  

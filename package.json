@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx mix",
-    "watch": "npx mix watch",
+    "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./assets/tailwind.css --watch",
+    
     "prod": "npx mix --production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
