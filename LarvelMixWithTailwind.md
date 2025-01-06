@@ -155,3 +155,5 @@ Add an interactive Alpine.js component:
   </div>
 </div>
 ```
+
+#### By following these given command You can easily Configure tailwindCss with AplineJs and LaravelMix
