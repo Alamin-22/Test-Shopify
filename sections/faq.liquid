@@ -1,11 +1,31 @@
-<div class="faq-section bg-gray-100 p-6 rounded-lg">
-  <h2 class="text-2xl font-bold text-gray-800 mb-4">{{ section.settings.faq_heading }}</h2>
-  <p class="text-gray-600 mb-6">{{ section.settings.faq_description }}</p>
-  <div class="faq-items space-y-4">
+<div class=" p-10 rounded-lg  ">
+  <h2 class="text-5xl font-semibold text-green-400 text-center mb-4">{{ section.settings.faq_heading }}</h2>
+  <p class="text-gray-600 mb-6 text-center">{{ section.settings.faq_description }}</p>
+  <div class="space-y-4 border border-red-400 ">
     {% for block in section.blocks %}
-      <div class="faq-item border-b border-gray-300 pb-4">
-        <h3 class="text-lg font-semibold text-gray-700">{{ block.settings.question }}</h3>
-        <p class="text-gray-600 mt-2">{{ block.settings.answer }}</p>
+      <div class=" border-b border-gray-300 p-4">
+        <!-- Accordion Item -->
+        <div x-data="{ open: false }" class="">
+          <h3
+            @click="open = !open"
+            class="text-lg font-semibold text-gray-700 cursor-pointer transition-all ease-in-out duration-300"
+          >
+            <span :class="open ? 'text-blue-600' : 'text-gray-700'">{{ block.settings.question }}</span>
+            <svg
+              :class="open ? 'rotate-180' : 'rotate-0'"
+              class="w-5 h-5 inline-block ml-2 transition-all ease-in-out duration-300"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </h3>
+          <div x-show="open" x-transition class="text-gray-600 mt-2">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -50,8 +70,7 @@
   ],
   "presets": [
     {
-      "name": "FAQ Section",
-      "category": "Custom"
+      "name": "FAQ Section"
     }
   ]
 }
