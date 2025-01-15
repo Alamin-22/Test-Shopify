@@ -392,6 +392,33 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "faq_MgTrWr": {
+      "type": "faq",
+      "blocks": {
+        "faq_GEApHj": {
+          "type": "faq",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We accept returns within 30 days of purchase."
+          }
+        },
+        "faq_FHEDC3": {
+          "type": "faq",
+          "settings": {
+            "question": "Hello",
+            "answer": "We accept returns within 30 days of purchase."
+          }
+        }
+      },
+      "block_order": [
+        "faq_GEApHj",
+        "faq_FHEDC3"
+      ],
+      "settings": {
+        "faq_heading": "This dynamic Heading is Working For FAQ",
+        "faq_description": "Yes, I am able to create this Dynamic FAQ Heading Section"
+      }
     }
   },
   "order": [
@@ -403,6 +430,7 @@
     "multirow_tpXBFy",
     "newsletter_A3x8Mz",
     "collapsible_content_fbfYkz",
-    "video_3Ghqd4"
+    "video_3Ghqd4",
+    "faq_MgTrWr"
   ]
 }
