@@ -1,16 +1,63 @@
-<div class="p-10 rounded-lg">
-  <span class="!text-5xl font-semibold text-green-400 text-center mb-4">{{ section.settings.faq_heading }}</span>
-  <p class="text-gray-600 mb-6 text-center">{{ section.settings.faq_description }}</p>
-  <div class="space-y-4 border border-red-400 w-full max-w-xl mx-auto ">
+<style>
+  .faq-section {
+    padding-top: {{ section.settings.padding_top }}rem;
+    padding-bottom: {{ section.settings.padding_bottom }}rem;
+    background-color: {{ section.settings.bg_color }};
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  .faq-heading {
+    font-size: {{ section.settings.heading_font_size }}px;
+    color: {{ section.settings.heading_color }};
+    text-align: {{ section.settings.heading_alignment }};
+  }
+
+  .faq-description {
+    font-size: {{ section.settings.description_font_size }}px;
+    color: {{ section.settings.description_color }};
+    text-align: {{ section.settings.description_alignment }};
+  }
+
+  .faq-container {
+    width: {{ section.settings.container_width }}%;
+    border: {{ section.settings.border_width }}px solid {{ section.settings.border_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+  }
+
+  .faq-question {
+    font-size: {{ section.settings.question_font_size }}px;
+    color: {{ section.settings.question_color }};
+    text-align: {{ section.settings.question_alignment }};
+    padding: {{ section.settings.question_padding }}px;
+  }
+
+  .faq-answer {
+    font-size: {{ section.settings.answer_font_size }}px;
+    color: {{ section.settings.answer_color }};
+    text-align: {{ section.settings.answer_alignment }};
+    padding: {{ section.settings.answer_padding }}px;
+  }
+</style>
+
+<div class="faq-section p-10 rounded-lg">
+  <h1 class="faq-heading font-semibold mb-4">
+    {{ section.settings.faq_heading }}
+  </h1>
+  <p class="faq-description mb-6">
+    {{ section.settings.faq_description }}
+  </p>
+
+  <div class="faq-container mx-auto space-y-4">
     {% for block in section.blocks %}
-      <div class=" border-b border-gray-300 p-4 flex flex-wrap">
-        <!-- Accordion Item -->
-        <div x-data="{ open: false }" class="">
+      <div class="border-b border-gray-300 p-4 flex flex-wrap">
+        <div x-data="{ open: false }" class="w-full">
           <h3
             @click="open = !open"
-            class="text-lg font-semibold text-gray-700 cursor-pointer transition-all ease-in-out duration-300"
+            class="faq-question font-semibold cursor-pointer transition-all ease-in-out duration-300"
           >
-            <span :class="open ? 'text-blue-600' : 'text-gray-700'">{{ block.settings.question }}</span>
+            <span :class="open ? 'text-blue-600' : 'faq-question'">
+              {{ block.settings.question }}
+            </span>
             <svg
               :class="open ? 'rotate-180' : 'rotate-0'"
               class="w-5 h-5 inline-block ml-2 transition-all ease-in-out duration-300"
@@ -22,7 +69,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </h3>
-          <div x-show="open" x-transition class="text-gray-600 mt-2">
+          <div x-show="open" x-transition class="faq-answer mt-2">
             <p>{{ block.settings.answer }}</p>
           </div>
         </div>
@@ -42,10 +89,126 @@
       "default": "Frequently Asked Questions"
     },
     {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#10B981"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
       "type": "textarea",
       "id": "faq_description",
       "label": "Section Description",
       "default": "Find answers to your most common questions here."
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#4B5563"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "label": "Description Font Size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "description_alignment",
+      "label": "Description Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "rem",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container Width (%)",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#E5E7EB"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border Width",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border Radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 10
     }
   ],
   "blocks": [
@@ -60,10 +223,32 @@
           "default": "What is your return policy?"
         },
         {
+          "type": "color",
+          "id": "question_color",
+          "label": "Question Color",
+          "default": "#1F2937"
+        },
+        {
+          "type": "range",
+          "id": "question_font_size",
+          "label": "Question Font Size",
+          "min": 12,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 18
+        },
+        {
           "type": "textarea",
           "id": "answer",
           "label": "Answer",
           "default": "We accept returns within 30 days of purchase."
+        },
+        {
+          "type": "color",
+          "id": "answer_color",
+          "label": "Answer Color",
+          "default": "#4B5563"
         }
       ]
     }
