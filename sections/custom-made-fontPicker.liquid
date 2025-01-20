@@ -1,0 +1,60 @@
+{%- liquid
+  assign heading_font = section.settings.heading_font
+  assign paragraph_font = section.settings.paragraph_font
+  assign heading_title = section.settings.heading_title
+  assign paragraph_description = section.settings.paragraph_description
+-%}
+
+<style>
+    {{ heading_font | font_face }}
+    {{ paragraph_font | font_face }}
+    .font-picker-section h1 {
+     font-family:{{ heading_font.family }},{{ heading_font.fallback_families }}
+  }
+  .font-picker-section p {
+    font-family:{{ paragraph_font.family }},{{ paragraph_font.fallback_families }}
+    }
+</style>
+
+<div class="page-width font-picker-section">
+  <h1>{{ heading_title }}</h1>
+  <p>{{ paragraph_description }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Font Picker",
+  "settings": [
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "paragraph_font",
+      "label": "Paragraph Font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "text",
+      "id": "heading_title",
+      "label": "Heading Text",
+      "default": "Learn Shopify With Mollik"
+    },
+    {
+      "type": "text",
+      "id": "paragraph_description",
+      "label": "Paragraph Text",
+      "default": "In this tutorial I am going to create a Custom Font Picker Section"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Font Picker Section"
+    }
+  ]
+}
+{% endschema %}
