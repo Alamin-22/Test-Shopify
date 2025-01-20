@@ -198,7 +198,10 @@
                   overlapping_image_3: block.settings.overlapping_image_3,
                   overlapping_image_4: block.settings.overlapping_image_4,
                   overlapping_text: block.settings.overlapping_text,
-                  overlapping_stars: block.settings.overlapping_stars
+                  overlapping_stars: block.settings.overlapping_stars,
+                  overlapping_image_align: block.settings.overlapping_image_align,
+                  overlapping_image_wpc: block.settings.overlapping_image_wpc,
+                  overlapping_image_wmb: block.settings.overlapping_image_wmb
                 %}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
@@ -889,6 +892,42 @@
           "id": "overlapping_stars",
           "label": "Rating Stars",
           "default": "⭐⭐⭐⭐⭐"
+        },
+        {
+          "type": "select",
+          "id": "overlapping_image_align",
+          "label": "Image Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "overlapping_image_wpc",
+          "label": "Image size desktop",
+          "min": 2,
+          "max": 200,
+          "step": 2,
+          "default": 64,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "overlapping_image_wmb",
+          "label": "Image size mobile",
+          "min": 2,
+          "max": 200,
+          "step": 2,
+          "default": 48,
+          "unit": "px"
         }
       ]
     },
