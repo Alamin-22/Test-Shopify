@@ -396,32 +396,24 @@
     "faq_MgTrWr": {
       "type": "faq",
       "blocks": {
-        "faq_1": {
+        "faq_GEApHj": {
           "type": "faq",
           "settings": {
             "question": "What is your return policy?",
             "answer": "We accept returns within 30 days of purchase."
           }
         },
-        "faq_2": {
+        "faq_FHEDC3": {
           "type": "faq",
           "settings": {
-            "question": "What payment methods do you accept?",
-            "answer": "We accept all major credit/debit cards, PayPal, and other secure payment gateways."
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I modify or cancel my order after placing it?",
-            "answer": "If your order hasn't been shipped, please contact our support team to make changes or cancel your order."
+            "question": "Hello",
+            "answer": "We accept returns within 30 days of purchase."
           }
         }
       },
       "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3",
+        "faq_GEApHj",
+        "faq_FHEDC3"
       ],
       "settings": {
         "faq_heading": "This dynamic Heading is Working For FAQ",
