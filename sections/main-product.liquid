@@ -191,6 +191,15 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
+              {%- when 'overlapping-images' -%}
+                {% render 'overlapping-images',
+                  overlapping_image_1: block.settings.overlapping_image_1,
+                  overlapping_image_2: block.settings.overlapping_image_2,
+                  overlapping_image_3: block.settings.overlapping_image_3,
+                  overlapping_image_4: block.settings.overlapping_image_4,
+                  overlapping_text: block.settings.overlapping_text,
+                  overlapping_stars: block.settings.overlapping_stars
+                %}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -842,6 +851,44 @@
           "id": "show_inventory_quantity",
           "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
           "default": true
+        }
+      ]
+    },
+    {
+      "type": "overlapping-images",
+      "name": "Overlapping Reviews",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "overlapping_image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "overlapping_image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "overlapping_image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "overlapping_image_4",
+          "label": "Image 4"
+        },
+        {
+          "type": "text",
+          "id": "overlapping_text",
+          "label": "Text",
+          "default": "Learn Shopify Theme Development With Team CS"
+        },
+        {
+          "type": "text",
+          "id": "overlapping_stars",
+          "label": "Rating Stars",
+          "default": "⭐⭐⭐⭐⭐"
         }
       ]
     },

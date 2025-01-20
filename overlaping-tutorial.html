@@ -1,65 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    .overlapping-images-container {
+        width: 100%;
+    }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    .overlapping-images {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
 
+    .overlapping-images img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
 
-    <style>
-        .overlapping-images-container {
-            width: 100%;
-            border: 1px solid gray;
-            max-width: max-content;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 100px;
-            margin-left: 35%;
-            margin-right: 35%;
+    .overlapping-images img:not(:first-child) {
+        margin-left: -20px;
+    }
 
-        }
+    .overlapping-images p {
+        margin-left: 10px;
+        font-size: 15px;
+    }
 
+    @media screen and (max-width: 450px) {
         .overlapping-images {
-            width: 100%;
-            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
         }
 
         .overlapping-images img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid gray;
+            width: 40px;
+            height: 40px;
+        }
+
+        .overlapping-images p {
+            font-size: 12px;
         }
 
         .overlapping-images img:not(:first-child) {
-            margin-left: -20px;
+            margin-left: -10px;
         }
+    }
+</style>
 
-        .overlapping-images h3 {
-            margin-left: 20px;
-        }
-    </style>
-
-
-
-</head>
-
-<body>
-    <div class="overlapping-images-container">
-        <div class="overlapping-images">
-            <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/1691108234223.webp?v=1737356999" alt="">
-            <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/mollik_ma5stq.webp?v=1737356989" alt="">
-            <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/125252312.webp?v=1737356992" alt="">
-            <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/1696183763717.webp?v=1737356996" alt="">
-
-        </div>
-        <h3>Learn Shopify Theme Development With Team CS</h3>
-        <p style="color: red; text-align: center;">8000 Tk Only</p>
-        <p style="text-align: center;">You Will Get Certified <b style="color: brown;">তাবিজ</b></p>
+<div class="overlapping-images-container">
+    <div class="overlapping-images">
+        <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/1691108234223.webp?v=1737356999" alt="" />
+        <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/1696183763717.webp?v=1737356996" alt="" />
+        <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/125252312.webp?v=1737356992" alt="" />
+        <img src="https://cdn.shopify.com/s/files/1/0891/8545/2398/files/mollik_ma5stq.webp?v=1737356989" alt="" />
+        <p> Learn Shopify Theme Development With Team CS
+            <span style="display: block; text-align: center;">8000 Tk Only</span>
+        </p>
     </div>
-</body>
-
-</html>
+</div>

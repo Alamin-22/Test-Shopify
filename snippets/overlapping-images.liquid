@@ -1,0 +1,73 @@
+<style>
+  .overlapping-images-container {
+    width: 100%;
+  }
+
+  .overlapping-images {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .overlapping-images img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .overlapping-images img:not(:first-child) {
+    margin-left: -20px;
+  }
+
+  .overlapping-images p {
+    margin-left: 10px;
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 450px) {
+    .overlapping-images {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .overlapping-images img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .overlapping-images p {
+      font-size: 12px;
+    }
+
+    .overlapping-images img:not(:first-child) {
+      margin-left: -10px;
+    }
+  }
+</style>
+
+<div class="overlapping-images-container">
+  <div class="overlapping-images">
+    <img
+      src="{{ overlapping_image_1 | img_url: 'master' }}"
+      alt=""
+    >
+    <img
+      src="{{ overlapping_image_2 | img_url: 'master' }}"
+      alt=""
+    >
+    <img
+      src="{{ overlapping_image_3 | img_url: 'master' }}"
+      alt=""
+    >
+    <img
+      src="{{ overlapping_image_4 | img_url: 'master' }}"
+      alt=""
+    >
+
+    <p>
+      {{ overlapping_text }}
+      <span style="display: block; text-align: center;">{{ overlapping_stars }}</span>
+    </p>
+  </div>
+</div>
