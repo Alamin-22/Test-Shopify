@@ -101,3 +101,135 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+{% comment %}
+
+  {% comment %}
+    Renders a standard dropdown style menu for the header.
+
+    Usage:
+    {% render 'header-dropdown-menu' %}
+  {% endcomment %}
+
+  <nav class="header__inline-menu">
+    <ul class="list-menu list-menu--inline" role="list">
+      {%- for link in section.settings.menu.links -%}
+        <li
+          x-data="{ icon: '' }"
+          x-init="
+            if ('{{ link.title | escape }}' === 'Home') {
+              icon = 'https://cdn.shopify.com/s/files/1/0891/8545/2398/files/download.png?v=1737435885';
+            } else if ('{{ link.title | escape }}' === 'Products') {
+              icon = 'https://cdn.shopify.com/s/files/1/0891/8545/2398/files/download_d46a1a2a-7a03-4b98-b02a-3102d76e63a6.png?v=1737435968';
+            } else if ('{{ link.title | escape }}' === 'About US') {
+              icon = 'https://cdn.shopify.com/s/files/1/0891/8545/2398/files/download_91d14f51-e3a4-48ca-9a1c-51e3ce359f1b.png?v=1737436122';
+            } else if ('{{ link.title | escape }}' === 'Contact') {
+              icon = 'https://cdn.shopify.com/s/files/1/0891/8545/2398/files/download_5d1423c5-2588-4542-9f05-3e945137df7d.png?v=1737436004';
+            }
+            else if ('{{ link.title | escape }}' === 'Blogs & News') {
+              icon = 'https://cdn.shopify.com/s/files/1/0891/8545/2398/files/download_2bb80d4d-367e-4f68-a747-b529c90624e9.png?v=1737436031';
+            }
+            else {
+              icon = ''; // Default for other links
+            }
+          "
+        >
+          {%- if link.links != blank -%}
+            <header-menu>
+              <details id="Details-HeaderMenu-{{ forloop.index }}">
+                <summary
+                  id="HeaderMenu-{{ link.handle }}"
+                  class="header__menu-item list-menu__item link focus-inset"
+                >
+                  <span
+                    {%- if link.child_active %}
+                      class="header__active-menu-item"
+                    {% endif %}
+                  >
+                    <template x-if="icon">
+                      <img :src="icon" alt="Icon" class="menu-icon" width="20" height="20">
+                    </template>
+                    {{ link.title | escape }}
+                  </span>
+                  {{ 'icon-caret.svg' | inline_asset_content }}
+                </summary>
+                <ul
+                  id="HeaderMenu-MenuList-{{ forloop.index }}"
+                  class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                  role="list"
+                  tabindex="-1"
+                >
+                  {%- for childlink in link.links -%}
+                    <li>
+                      {%- if childlink.links == blank -%}
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                      {%- else -%}
+                        <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                          <summary
+                            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                            class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                          >
+                            <span>{{ childlink.title | escape }}</span>
+                            {{ 'icon-caret.svg' | inline_asset_content }}
+                          </summary>
+                          <ul
+                            id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                            class="header__submenu list-menu motion-reduce"
+                          >
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a
+                                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                  href="{{ grandchildlink.url }}"
+                                  class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                  {% if grandchildlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </details>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </details>
+            </header-menu>
+          {%- else -%}
+            <a
+              id="HeaderMenu-{{ link.handle }}"
+              href="{{ link.url }}"
+              class="header__menu-item list-menu__item link link--text focus-inset"
+              {% if link.current %}
+                aria-current="page"
+              {% endif %}
+            >
+              <span
+                {%- if link.current %}
+                  class="header__active-menu-item"
+                {% endif %}
+              >
+                <template x-if="icon">
+                  <img :src="icon" alt="Icon" class="menu-icon" width="20" height="20">
+                </template>
+                {{ link.title | escape }}
+              </span>
+            </a>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+{% endcomment %}
