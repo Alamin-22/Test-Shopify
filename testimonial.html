@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+        /* Main Container */
+        .main-container-testimonial-section-gm {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Card Styling */
+        .card-testimonial-section-gm {
+            flex: 0 0 auto;
+            width: 320px;
+            height: 450px;
+            background-color: bisque;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px 1px rgba(0, 60, 60, 0.3);
+        }
+
+        /* Top Bar */
+        .testimonial-top-bar {
+            width: 100%;
+            height: 25%;
+            background-color: #e53935d4;
+            clip-path: polygon(0 1%, 100% 0, 100% 80%, 0% 100%);
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        /* Content Bar */
+        .testimonial-content-bar {
+            width: 100%;
+            height: 50%;
+            position: relative;
+            border: 1px solid bisque;
+        }
+
+        .testimonial-content-bar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px 1px #d4d4d4d4;
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .testimonial-content-bar h2 {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .testimonial-content-bar p {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Bottom Bar */
+        .testimonial-bottom-bar {
+            width: 100%;
+            height: 25%;
+            background-color: #e53935d4;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        /* Stars Container */
+        .stars-container-gm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .star-fa-icons-testimonials {
+            color: gold;
+            font-size: 24px;
+            margin: 0 3px;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 800px) {
+            .main-container-testimonial-section-gm {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .main-container-testimonial-section-gm::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .card-testimonial-section-gm {
+                width: 300px;
+            }
+        }
+
+        @media only screen and (max-width: 360px) {
+            .card-testimonial-section-gm {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container-testimonial-section-gm">
+        <!-- Testimonial Card 1 -->
+        <div class="card-testimonial-section-gm">
+            <div class="testimonial-top-bar"></div>
+            <div class="testimonial-content-bar">
+                <img src="https://res.cloudinary.com/dydv6uxzo/image/upload/v1737195324/CoderSquad-Landing/mollik_ma5stq.jpg"
+                    alt="Mr. Mollik">
+                <h2>Mr. Mollik</h2>
+                <p>
+                    Great service and amazing products! Highly recommend to everyone.
+                </p>
+            </div>
+            <div class="testimonial-bottom-bar">
+                <div class="stars-container-gm">
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 2 -->
+        <div class="card-testimonial-section-gm">
+            <div class="testimonial-top-bar"></div>
+            <div class="testimonial-content-bar">
+                <img src="https://res.cloudinary.com/dydv6uxzo/image/upload/v1737195324/CoderSquad-Landing/mollik_ma5stq.jpg"
+                    alt="Mr. Mollik">
+                <h2>Mr. Mollik</h2>
+                <p>
+                    Great service and amazing products! Highly recommend to everyone.
+                    The team is very responsive and helpful. Keep up the great work!
+                </p>
+            </div>
+            <div class="testimonial-bottom-bar">
+                <div class="stars-container-gm">
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="card-testimonial-section-gm">
+            <div class="testimonial-top-bar"></div>
+            <div class="testimonial-content-bar">
+                <img src="https://res.cloudinary.com/dydv6uxzo/image/upload/v1737195324/CoderSquad-Landing/mollik_ma5stq.jpg"
+                    alt="Mr. Mollik">
+                <h2>Mr. Mollik</h2>
+                <p>
+                    Great service and amazing products! Highly recommend to everyone.
+                </p>
+            </div>
+            <div class="testimonial-bottom-bar">
+                <div class="stars-container-gm">
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                    <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
