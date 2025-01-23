@@ -382,6 +382,7 @@
                       </price-per-item>
                     {%- endif -%}
                   </div>
+
                   <div class="quantity__rules caption" id="Quantity-Rules-{{ section.id }}">
                     {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
                       <span class="divider">
@@ -696,7 +697,9 @@
         </section>
       </div>
     </div>
-
+    {% comment %} Rendering Snippet for Details and Warranty  {% endcomment %}
+    {% render 'product-warranty' %}
+    {% comment %} end Rendering Snippet for Details and Warranty {% endcomment %}
     {% render 'product-media-modal', variant_images: variant_images %}
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
