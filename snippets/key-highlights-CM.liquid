@@ -1,0 +1,108 @@
+<style>
+  .main-container-pkh--gm {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main-container-pkh--gm h2 {
+    font-size: 2.5rem;
+  }
+
+  .pkh-container--gm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .pkh-box--gm {
+    width: 45%;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .pkh-key--gm {
+    color: #96a6bc;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .pkh-value--gm {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .pkh-disclaimer-text--gm {
+    font-size: 1.3rem;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .main-container-pkh--gm h2 {
+      font-size: 2rem;
+    }
+    .pkh-key--gm {
+      font-size: 1.5rem;
+    }
+
+    .pkh-value--gm {
+      font-size: 1.3rem;
+    }
+
+    .pkh-disclaimer-text--gm {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .main-container-pkh--gm h2 {
+      font-size: 1.7rem;
+    }
+    .pkh-key--gm {
+      font-size: 1.2rem;
+    }
+
+    .pkh-value--gm {
+      font-size: 1rem;
+    }
+
+    .pkh-disclaimer-text--gm {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="main-container-pkh--gm">
+  <h2>Key Highlights</h2>
+  <div class="pkh-container--gm">
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_1 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_1 }}</span>
+    </div>
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_2 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_2 }}</span>
+    </div>
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_3 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_3 }}</span>
+    </div>
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_4 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_4 }}</span>
+    </div>
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_5 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_5 }}</span>
+    </div>
+    <div class="pkh-box--gm">
+      <span class="pkh-key--gm">{{ pkh_key_6 }}</span>
+      <span class="pkh-value--gm">{{ pkh_value_6 }}</span>
+    </div>
+  </div>
+
+</div>

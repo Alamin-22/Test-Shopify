@@ -672,6 +672,21 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'key-highlights' -%}
+                {% render 'key-highlights-CM',
+                  pkh_key_1: block.settings.pkh_key_1,
+                  pkh_key_2: block.settings.pkh_key_2,
+                  pkh_key_3: block.settings.pkh_key_3,
+                  pkh_key_4: block.settings.pkh_key_4,
+                  pkh_key_5: block.settings.pkh_key_5,
+                  pkh_key_6: block.settings.pkh_key_6,
+                  pkh_value_1: block.settings.pkh_value_1,
+                  pkh_value_2: block.settings.pkh_value_2,
+                  pkh_value_3: block.settings.pkh_value_3,
+                  pkh_value_4: block.settings.pkh_value_4,
+                  pkh_value_5: block.settings.pkh_value_5,
+                  pkh_value_6: block.settings.pkh_value_6
+                %}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -935,6 +950,84 @@
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
       "limit": 1
+    },
+    {
+      "type": "key-highlights",
+      "name": "Key Highlights",
+      "settings": [
+        {
+          "type": "text",
+          "id": "pkh_key_1",
+          "label": "Key 1",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_key_2",
+          "label": "Key 2",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_key_3",
+          "label": "Key 3",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_key_4",
+          "label": "Key 4",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_key_5",
+          "label": "Key 5",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_key_6",
+          "label": "Key 6",
+          "default": "Fabric"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_1",
+          "label": "Value 1",
+          "default": "Premium Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_2",
+          "label": "Value 2",
+          "default": "Premium Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_3",
+          "label": "Value 3",
+          "default": "Premium Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_4",
+          "label": "Value 4",
+          "default": "Premium Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_5",
+          "label": "Value 5",
+          "default": "Premium Organic Cotton"
+        },
+        {
+          "type": "text",
+          "id": "pkh_value_6",
+          "label": "Value 6",
+          "default": "Premium Organic Cotton"
+        }
+      ]
     },
     {
       "type": "variant_picker",
@@ -1546,6 +1639,7 @@
         }
       ]
     },
+
     {
       "type": "icon-with-text",
       "name": "t:sections.main-product.blocks.icon_with_text.name",
@@ -2162,6 +2256,7 @@
       ]
     }
   ],
+
   "settings": [
     {
       "type": "checkbox",

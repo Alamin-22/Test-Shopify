@@ -1,0 +1,272 @@
+{% comment %} <style>
+  /* Main Container */
+  .testimonial-section-container {
+    width: 100%;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: {{ section.settings.background_color }};
+  }
+
+  /* Heading & Subheading */
+  .testimonial-heading {
+    font-size: {{ section.settings.heading_font_size }}px;
+    color: {{ section.settings.heading_color }};
+    margin-bottom: 10px;
+  }
+
+  .testimonial-subheading {
+    font-size: {{ section.settings.subheading_font_size }}px;
+    color: {{ section.settings.subheading_color }};
+    margin-bottom: 30px;
+  }
+
+  /* Main Container */
+  .main-container-testimonial-section-gm {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Card Styling */
+  .card-testimonial-section-gm {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 450px;
+    background-color: {{ section.settings.card_background }};
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px 1px rgba(0, 60, 60, 0.3);
+  }
+
+  /* Top Bar */
+  .testimonial-top-bar {
+    width: 100%;
+    height: 25%;
+    background-color: {{ section.settings.top_bar_color }};
+    clip-path: polygon(0 1%, 100% 0, 100% 80%, 0% 100%);
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  /* Content Bar */
+  .testimonial-content-bar {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    border: 1px solid bisque;
+    text-align: {{ section.settings.text_alignment }};
+  }
+
+  .testimonial-content-bar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 1px #d4d4d4d4;
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .testimonial-content-bar h2 {
+    margin-top: 60px;
+    font-size: {{ section.settings.font_size }}px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .testimonial-content-bar p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Bottom Bar */
+  .testimonial-bottom-bar {
+    width: 100%;
+    height: 25%;
+    background-color: {{ section.settings.bottom_bar_color }};
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0% 100%);
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  /* Stars Container */
+  .stars-container-gm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .star-fa-icons-testimonials {
+    color: gold;
+    font-size: 24px;
+    margin: 0 3px;
+  }
+</style>
+
+<div class="testimonial-section-container">
+  <!-- Heading & Subheading -->
+  <h2 class="testimonial-heading">{{ section.settings.heading }}</h2>
+  <p class="testimonial-subheading">{{ section.settings.subheading }}</p>
+
+  <div class="main-container-testimonial-section-gm">
+    {% for block in section.blocks %}
+      <div class="card-testimonial-section-gm">
+        <div class="testimonial-top-bar">&nbsp;</div>
+        <div class="testimonial-content-bar">
+          <img src="{{ block.settings.customer_image | img_url: 'master' }}" alt="Customer Image" width="" height="">
+          <h2>{{ block.settings.customer_name }}</h2>
+          <p>{{ block.settings.customer_review }}</p>
+        </div>
+        <div class="testimonial-bottom-bar">
+          <div class="stars-container-gm">
+            {% for i in (1..block.settings.star_rating) %}
+              <i class="fa-solid fa-star star-fa-icons-testimonials"></i>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customizable Testimonial",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading Font Size",
+      "min": 20,
+      "max": 50,
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#333333"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Section Subheading",
+      "default": "Real reviews from our happy customers"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "label": "Subheading Font Size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background Color",
+      "default": "bisque"
+    },
+    {
+      "type": "color",
+      "id": "top_bar_color",
+      "label": "Top Bar Color",
+      "default": "#e53935d4"
+    },
+    {
+      "type": "color",
+      "id": "bottom_bar_color",
+      "label": "Bottom Bar Color",
+      "default": "#e53935d4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 18
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "customer_image",
+          "label": "Customer Image"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "customer_review",
+          "label": "Review Text",
+          "default": "This is an amazing product!"
+        },
+        {
+          "type": "range",
+          "id": "star_rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customizable Testimonial"
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
