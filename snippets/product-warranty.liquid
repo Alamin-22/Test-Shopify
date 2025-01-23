@@ -1,21 +1,22 @@
-<div class=" border p-4 rounded-md my-3 bg-gray-200">
-  {% if product.metafields.custom.warranty %}
-    <p class="">
-      <strong class="">Warranty:</strong> {{ product.metafields.custom.warranty }}
-    </p>
-  {% else %}
-    <p><strong>Warranty:</strong> 1 Year Warranty</p>
-  {% endif %}
-</div>
+{% comment %} Product Warranty & Details Snippet {% endcomment %}
 
-<div class="border p-6 rounded-md my-3 bg-gray-100">
-  {% if product.metafields.custom.detailed_description %}
+{% assign warranty_text = product.metafields.custom.warranty | default: section.settings.warranty_text %}
+{% assign test_text = product.metafields.custom.test_data %}
+{% assign description_text = product.metafields.custom.detailed_description
+  | default: section.settings.detailed_description
+%}
+
+{% if section.settings.show_warranty and warranty_text != blank %}
+  <div class="border p-4 rounded-md my-3 bg-gray-200">
+    <p><strong>Warranty:</strong> {{ warranty_text }}</p>
+    <p><strong>TEst:</strong> {{ test_text }}</p>
+  </div>
+{% endif %}
+
+{% if section.settings.show_detailed_description and description_text != blank %}
+  <div class="border p-6 rounded-md my-3 bg-gray-100">
     <div class="detailed-description">
-      {{ product.metafields.custom.detailed_description }}
+      {{ description_text | metafield_tag }}
     </div>
-  {% else %}
-    <div class="detailed-description">
-      <p>This product is made with high-quality materials.</p>
-    </div>
-  {% endif %}
-</div>
+  </div>
+{% endif %}

@@ -698,7 +698,16 @@
       </div>
     </div>
     {% comment %} Rendering Snippet for Details and Warranty  {% endcomment %}
-    {% render 'product-warranty' %}
+    {% comment %} {% render 'product-warranty' %} {% endcomment %}
+    {% comment %} making it customizable via passing setting to the snippet {% endcomment %}
+    {% render 'product-warranty',
+      show_warranty: section.settings.show_warranty,
+      test_data: section.settings.test_data,
+      default_warranty: section.settings.default_warranty,
+      show_detailed_description: section.settings.show_detailed_description,
+      default_description: section.settings.default_description
+    %}
+
     {% comment %} end Rendering Snippet for Details and Warranty {% endcomment %}
     {% render 'product-media-modal', variant_images: variant_images %}
 
@@ -2259,7 +2268,6 @@
       ]
     }
   ],
-
   "settings": [
     {
       "type": "checkbox",
@@ -2305,6 +2313,35 @@
       "default": true,
       "label": "t:sections.main-product.settings.constrain_to_viewport.label"
     },
+
+    // 🔹 NEW SETTINGS: WARRANTY & DESCRIPTION
+    {
+      "type": "checkbox",
+      "id": "show_warranty",
+      "default": true,
+      "label": "Show Warranty Section"
+    },
+    {
+      "type": "text",
+      "id": "warranty_text",
+      "label": "Default Warranty Text",
+      "default": "1 Year Warranty",
+      "info": "If the product has a metafield for warranty, it will override this."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_detailed_description",
+      "default": true,
+      "label": "Show Detailed Description"
+    },
+    {
+      "type": "richtext",
+      "id": "detailed_description",
+      "label": "Default Detailed Description",
+      "default": "<p>This product is made with high-quality materials.</p>",
+      "info": "If the product has a metafield for description, it will override this."
+    },
+    // 🔹 EXISTING SETTINGS CONTINUE BELOW
     {
       "type": "select",
       "id": "media_fit",
@@ -2345,76 +2382,7 @@
       "default": "stacked",
       "label": "t:sections.main-product.settings.gallery_layout.label"
     },
-    {
-      "type": "select",
-      "id": "media_position",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.main-product.settings.media_position.options__1.label"
-        },
-        {
-          "value": "right",
-          "label": "t:sections.main-product.settings.media_position.options__2.label"
-        }
-      ],
-      "default": "left",
-      "label": "t:sections.main-product.settings.media_position.label",
-      "info": "t:sections.main-product.settings.media_position.info"
-    },
-    {
-      "type": "select",
-      "id": "image_zoom",
-      "options": [
-        {
-          "value": "lightbox",
-          "label": "t:sections.main-product.settings.image_zoom.options__1.label"
-        },
-        {
-          "value": "hover",
-          "label": "t:sections.main-product.settings.image_zoom.options__2.label"
-        },
-        {
-          "value": "none",
-          "label": "t:sections.main-product.settings.image_zoom.options__3.label"
-        }
-      ],
-      "default": "lightbox",
-      "label": "t:sections.main-product.settings.image_zoom.label",
-      "info": "t:sections.main-product.settings.image_zoom.info"
-    },
-    {
-      "type": "select",
-      "id": "mobile_thumbnails",
-      "options": [
-        {
-          "value": "columns",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__1.label"
-        },
-        {
-          "value": "show",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__2.label"
-        },
-        {
-          "value": "hide",
-          "label": "t:sections.main-product.settings.mobile_thumbnails.options__3.label"
-        }
-      ],
-      "default": "hide",
-      "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_variants",
-      "default": false,
-      "label": "t:sections.main-product.settings.hide_variants.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_video_looping",
-      "default": false,
-      "label": "t:sections.main-product.settings.enable_video_looping.label"
-    },
+
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
