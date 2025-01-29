@@ -2,6 +2,7 @@
 
 {% assign warranty_text = product.metafields.custom.warranty | default: section.settings.warranty_text %}
 {% assign test_text = product.metafields.custom.test_data %}
+{% assign description_video = product.metafields.custom.detailed_video %}
 {% assign description_text = product.metafields.custom.detailed_description
   | default: section.settings.detailed_description
 %}
@@ -9,7 +10,28 @@
 {% if section.settings.show_warranty and warranty_text != blank %}
   <div class="border p-4 rounded-md my-3 bg-gray-200">
     <p><strong>Warranty:</strong> {{ warranty_text }}</p>
-    <p><strong>TEst:</strong> {{ test_text }}</p>
+    <p><strong>Test:</strong> {{ test_text }}</p>
+  </div>
+{% endif %}
+
+{% comment %} Video Section {% endcomment %}
+{% if description_video != blank %}
+  <div class="border p-6 rounded-md my-3 bg-gray-100 video-section">
+    <h3 class="text-xl font-bold mb-4">Product Video</h3>
+    <div class="aspect-w-16 aspect-h-9">
+      {% if description_video.type == 'file' and description_video.value.media_type == 'video' %}
+        {{ description_video | video_tag: controls: true, class: 'w-full h-full object-cover' }}
+      {% else %}
+        {# For URL-based videos (YouTube/Vimeo) #}
+        <iframe 
+          src="{{ description_video.value }}" 
+          class="w-full h-full"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      {% endif %}
+    </div>
   </div>
 {% endif %}
 
